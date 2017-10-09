@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="spaiker_grn.github.com.restaurants_menu.MainActivity">
+
+    <ListView
+        android:id="@+id/main_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:entries="@array/main_menu"/>
+
+</LinearLayout>

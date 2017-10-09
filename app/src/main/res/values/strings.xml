@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Restaurants</string>
+    <string-array name="main_menu">
+        <item>Drink</item>
+        <item>Food</item>
+        <item>Stores</item>
+    </string-array>
+
+</resources>
