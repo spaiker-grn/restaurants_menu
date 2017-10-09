@@ -15,12 +15,11 @@ public class DrinkCategoryActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         final ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Drink.drinks);
-
         final ListView listView = getListView();
-
         listView.setAdapter(listAdapter);
 
     }
+
 
     protected void onListItemClick(final ListView l, final View v, final int position, final long id) {
 

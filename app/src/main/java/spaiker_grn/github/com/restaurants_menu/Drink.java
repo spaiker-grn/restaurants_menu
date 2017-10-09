@@ -1,6 +1,6 @@
 package spaiker_grn.github.com.restaurants_menu;
 
-final class Drink implements IDescriptionClass {
+ class Drink implements IDescriptionClass {
 
     private final String mName;
     private final String mDescription;
@@ -19,6 +19,7 @@ final class Drink implements IDescriptionClass {
         this.mName = name;
         this.mDescription = description;
         this.mImageResourceId = imageResourceId;
+
     }
 
     public String getDescription() {
