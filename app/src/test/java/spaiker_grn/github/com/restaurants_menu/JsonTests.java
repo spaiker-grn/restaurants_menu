@@ -92,6 +92,25 @@ public class JsonTests {
         ShadowLog.d("Name 1: ", listItem.getGsonList().get(0).getName());
         ShadowLog.d("Name 2: ", listItem.getGsonList().get(1).getName());
 
+        final InputStream inputstreamWithRoot = Mocks.sStream("jsonListItemRoot.json");
+        assertNotNull("inputstream null", inputstreamWithRoot);
+        when(mIHttpClient.request(Matchers.anyString())).thenReturn(inputstreamWithRoot);
+        final InputStream responseWithRoot = mIHttpClient.request("http://Url");
+        assertNotNull("Response null", response);
+
+
+        final GsonListParser WithRoot = new GsonListParser(responseWithRoot);
+        final IListItem listItemWithRoot = WithRoot.parseWithRoot();
+
+        assertTrue(listItemWithRoot.getGsonList().size()==3);
+        assertEquals(listItemWithRoot.getGsonList().get(0).getName(),"Coffee");
+        assertEquals(listItemWithRoot.getGsonList().get(0).getImage(), "http://Example");
+
+
+        ShadowLog.d("Name 1: ", listItemWithRoot.getGsonList().get(0).getName());
+        ShadowLog.d("Name 2: ", listItemWithRoot.getGsonList().get(1).getName());
+
+
 
     }
 

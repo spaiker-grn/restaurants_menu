@@ -22,4 +22,13 @@ public class GsonListParser implements IListParser {
         GsonItem[] result = new Gson().fromJson(reader, GsonItem[].class);
         return new GsonListItem(Arrays.asList(result));
     }
+
+    public IListItem parseWithRoot() throws Exception{
+
+        Reader reader = new InputStreamReader(mInputStream);
+
+        return new Gson().fromJson(reader,GsonListItem.class);
+
+
+    }
 }
