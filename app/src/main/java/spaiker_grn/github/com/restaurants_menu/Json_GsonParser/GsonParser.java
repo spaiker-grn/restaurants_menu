@@ -5,16 +5,16 @@ import com.google.gson.Gson;
 public class GsonParser implements IParser {
 
     private final String mSource;
-    private IParsingItem iParsingItem = new GsonParsingItem();
+    private IItem mIItem = new GsonItem();
 
     public GsonParser(String pSource) {
         mSource = pSource;
     }
 
     @Override
-    public IParsingItem parse() throws Exception {
+    public IItem parse() throws Exception {
 
-        return iParsingItem = new Gson().fromJson(mSource, iParsingItem.getClass());
+        return mIItem = new Gson().fromJson(mSource, mIItem.getClass());
 
     }
 }

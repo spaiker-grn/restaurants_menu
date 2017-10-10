@@ -1,6 +1,10 @@
 package spaiker_grn.github.com.restaurants_menu;
 
- class Drink implements IDescriptionClass {
+
+
+
+
+class Drink implements IDescriptionClass {
 
     private final String mName;
     private final String mDescription;
@@ -22,15 +26,15 @@ package spaiker_grn.github.com.restaurants_menu;
 
     }
 
-    public String getDescription() {
+    private String getDescription() {
         return mDescription;
     }
 
-    public String getName() {
+    private String getName() {
         return mName;
     }
 
-    public int getImageResourceId() {
+    private int getImageResourceId() {
         return mImageResourceId;
     }
 

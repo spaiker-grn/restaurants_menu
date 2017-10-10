@@ -1,15 +1,30 @@
 package spaiker_grn.github.com.restaurants_menu;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Matchers;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowLog;
+
+import java.io.InputStream;
+
+import spaiker_grn.github.com.Mocks;
+import spaiker_grn.github.com.httpClient.IHttpClient;
+import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonListParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonParser;
+import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IListItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IParser;
-import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IParsingItem;
+import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.jSonParser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
@@ -31,19 +46,52 @@ public class JsonTests {
     public void parse() throws Exception {
 
         final IParser iParser = new GsonParser(STRING_SOURCE);
-        final IParsingItem iParsingItem = iParser.parse();
+        final IItem iItem = iParser.parse();
 
 
-        assertEquals(EXPECTED_NAME, iParsingItem.getName());
-        assertEquals(EXPECTED_DESCRIPTION, iParsingItem.getDescription());
-        assertEquals(EXPECTED_IMAGE, iParsingItem.getImage());
+        assertEquals(EXPECTED_NAME, iItem.getName());
+        assertEquals(EXPECTED_DESCRIPTION, iItem.getDescription());
+        assertEquals(EXPECTED_IMAGE, iItem.getImage());
 
         final IParser iParserJson = new jSonParser(STRING_SOURCE);
-        final IParsingItem iParsingItemJson = iParserJson.parse();
+        final IItem iItemJson = iParserJson.parse();
 
-        assertEquals(EXPECTED_NAME, iParsingItemJson.getName());
-        assertEquals(EXPECTED_DESCRIPTION, iParsingItemJson.getDescription());
-        assertEquals(EXPECTED_IMAGE, iParsingItemJson.getImage());
+        assertEquals(EXPECTED_NAME, iItemJson.getName());
+        assertEquals(EXPECTED_DESCRIPTION, iItemJson.getDescription());
+        assertEquals(EXPECTED_IMAGE, iItemJson.getImage());
+
+
+    }
+
+
+    private IHttpClient mIHttpClient;
+
+
+    @Before
+    public void setUp(){
+        mIHttpClient = mock(IHttpClient.class);
+        ShadowLog.stream = System.out;
+    }
+
+    @Test
+    public void parseList() throws Exception{
+
+        final InputStream inputstream = Mocks.sStream("jsonListItem.json");
+        assertNotNull("inputstream null", inputstream);
+        when(mIHttpClient.request(Matchers.anyString())).thenReturn(inputstream);
+        final InputStream response = mIHttpClient.request("http://Url");
+        assertNotNull("Response null", response);
+
+        final GsonListParser gsonListParser = new GsonListParser(response);
+        final IListItem listItem = gsonListParser.parse();
+        assertTrue(listItem.getGsonList().size()==3);
+        assertEquals(listItem.getGsonList().get(0).getName(),"Coffee");
+        assertEquals(listItem.getGsonList().get(0).getImage(), "http://Example");
+
+
+        ShadowLog.d("Name 1: ", listItem.getGsonList().get(0).getName());
+        ShadowLog.d("Name 2: ", listItem.getGsonList().get(1).getName());
+
 
     }
 

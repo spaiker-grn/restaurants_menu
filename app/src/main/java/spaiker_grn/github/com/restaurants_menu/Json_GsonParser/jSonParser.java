@@ -11,11 +11,11 @@ public class jSonParser implements IParser {
     }
 
     @Override
-    public  IParsingItem parse() throws Exception {
+    public IItem parse() throws Exception {
 
         final JSONObject jsonObject = new JSONObject(mSource);
 
-        return new JsonParsingItem(jsonObject);
+        return new JsonItem(jsonObject);
 
     }
 }

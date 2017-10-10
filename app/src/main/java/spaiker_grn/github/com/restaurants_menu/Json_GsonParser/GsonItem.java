@@ -2,15 +2,15 @@ package spaiker_grn.github.com.restaurants_menu.Json_GsonParser;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GsonParsingItem implements IParsingItem {
+public class GsonItem implements IItem {
 
-    @SerializedName("name")
+
     private String name;
 
-    @SerializedName("description")
+
     private String description;
 
-    @SerializedName("image_source")
+
     private String image_source;
 
 

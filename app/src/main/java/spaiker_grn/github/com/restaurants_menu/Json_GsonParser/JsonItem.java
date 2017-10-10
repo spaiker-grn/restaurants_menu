@@ -2,7 +2,7 @@ package spaiker_grn.github.com.restaurants_menu.Json_GsonParser;
 
 import org.json.JSONObject;
 
-public class JsonParsingItem implements IParsingItem {
+public class JsonItem implements IItem {
 
     public static final String NAME = "name";
     public static final String DESCRIPTION = "description";
@@ -10,7 +10,7 @@ public class JsonParsingItem implements IParsingItem {
 
     JSONObject mJSONObject;
 
-    JsonParsingItem(JSONObject pJSONObject){
+    JsonItem(JSONObject pJSONObject){
 
         mJSONObject = pJSONObject;
     }
