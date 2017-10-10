@@ -25,14 +25,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 16)
+@Config(constants = BuildConfig.class, sdk = 21)
 
-public class RestarauntsUnitTest {
+public class RestaurantsUnitTest {
 
     private ActivityController<MainActivity> activityController;
-    MainActivity mMainActivity;
-    ListView mListView;
-    final int mListCount = 3;
+    private final int mListCount = 3;
 
     @Before
     public void init() {
@@ -48,28 +46,28 @@ public class RestarauntsUnitTest {
         activityController.start();
         activityController.resume();
 
-        mMainActivity = activityController.get();
+        final MainActivity mainActivity = activityController.get();
 
-        mListView = (ListView) mMainActivity.findViewById(R.id.main_list);
-        final String firstListItem = mMainActivity.getResources().getStringArray(R.array.main_menu)[0];
+        final ListView listView = (ListView) mainActivity.findViewById(R.id.main_list);
+        final String firstListItem = mainActivity.getResources().getStringArray(R.array.main_menu)[0];
 
-        assertNotNull("List not found", mListView);
-        ShadowLog.d("Child count", mListView.getChildCount() + " ");
+        assertNotNull("List not found", listView);
+        ShadowLog.d("Child count", listView.getChildCount() + " ");
         ShadowLog.d("Checking the first child name in adapter ",
-                (mListView.getAdapter().getItem(0).toString()));
-        assertTrue(mListView.getChildCount() == mListCount);
-        assertTrue("Item doesn't exist", firstListItem.equals(mListView.getAdapter().getItem(0).toString()));
+                (listView.getAdapter().getItem(0).toString()));
+        assertTrue(listView.getChildCount() == mListCount);
+        assertTrue("Item doesn't exist", firstListItem.equals(listView.getAdapter().getItem(0).toString()));
     }
 
     @Test
     public void listItemClick() throws Exception {
 
-        MainActivity mainActivity = Robolectric.setupActivity(MainActivity.class);
-        ShadowActivity activity = Shadows.shadowOf(mainActivity);
-        ListView listView = (ListView) mainActivity.findViewById(R.id.main_list);
+        final MainActivity mainActivity = Robolectric.setupActivity(MainActivity.class);
+        final ShadowActivity activity = Shadows.shadowOf(mainActivity);
+        final ListView listView = (ListView) mainActivity.findViewById(R.id.main_list);
         assertTrue(listView.getChildCount() == mListCount);
         Shadows.shadowOf(listView).performItemClick(0);
-        Intent startedIntent = activity.getNextStartedActivity();
+        final Intent startedIntent = activity.getNextStartedActivity();
         assertNotNull(startedIntent);
         assertEquals(startedIntent.getComponent().getClassName(), DrinkCategoryActivity.class.getName());
 
@@ -80,7 +78,7 @@ public class RestarauntsUnitTest {
 
     @Test
     public void mockTest() {
-        RuntimeException runtimeException = new RuntimeException("Out of bounds");
+        final RuntimeException runtimeException = new RuntimeException("Out of bounds");
         mDrink = mock(Drink.class);
         when(mDrink.getName(0)).thenReturn("Coffee");
         when(mDrink.getImageResourceId(0)).thenReturn(R.drawable.coffee);
@@ -100,7 +98,7 @@ public class RestarauntsUnitTest {
     @Test
     public void spyTest() {
 
-        SpyClass spyClass = spy(new SpyClass());
+        final SpyClass spyClass = spy(new SpyClass());
 
         when(spyClass.setId(2)).thenReturn(false); // setID should be return true;
 
