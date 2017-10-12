@@ -5,5 +5,6 @@ import java.util.List;
 public interface IListItem {
 
     List<GsonItem> getGsonList();
+    List<JsonItem> getJsonList();
 
 }

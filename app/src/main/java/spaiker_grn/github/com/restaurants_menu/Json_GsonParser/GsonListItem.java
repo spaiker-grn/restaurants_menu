@@ -15,4 +15,9 @@ public class GsonListItem implements IListItem {
     }
 
     public List<GsonItem> getGsonList(){return  mGsonItems;}
+
+    @Override
+    public List<JsonItem> getJsonList() {
+        return null;
+    }
 }

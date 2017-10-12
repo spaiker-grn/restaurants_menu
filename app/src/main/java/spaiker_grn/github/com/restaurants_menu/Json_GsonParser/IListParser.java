@@ -6,4 +6,6 @@ public interface IListParser {
 
     IListItem parse() throws Exception;
 
+    IListItem parseWithRoot() throws Exception;
 }
+
