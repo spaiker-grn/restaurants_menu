@@ -95,15 +95,5 @@ public class RestaurantsUnitTest {
 
     }
 
-    @Test
-    public void spyTest() {
-
-        final SpyClass spyClass = spy(new SpyClass());
-
-        when(spyClass.setId(2)).thenReturn(false); // setID should be return true;
-
-        assertEquals(false, spyClass.setId(2));
-
-    }
 
 }

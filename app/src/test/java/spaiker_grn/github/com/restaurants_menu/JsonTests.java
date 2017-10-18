@@ -1,5 +1,9 @@
 package spaiker_grn.github.com.restaurants_menu;
 
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,14 +11,10 @@ import org.mockito.Matchers;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLog;
-
 import java.io.InputStream;
-
 import spaiker_grn.github.com.MockStream.MockStream;
-import spaiker_grn.github.com.restaurants_menu.httpClient.HttpClient;
-import spaiker_grn.github.com.restaurants_menu.httpClient.HttpClientTest;
-import spaiker_grn.github.com.restaurants_menu.httpClient.IHttpClient;
-import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.AdapterForTime;
+import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.Time;
+import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.TypeAdapterTime;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonListParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IListItem;
@@ -141,11 +141,17 @@ public class JsonTests {
     }
 
     @Test
-    public  void parseTime() throws AdapterForTime.UncorrectedDateType {
+    public void adapterTest(){
+        final GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Time.class, new TypeAdapterTime());
+        final Gson gson = gsonBuilder.create();
 
-        String response = "12042007234554";
-        AdapterForTime adapterForTime = new AdapterForTime(response);
-        ShadowLog.d("parsing time", adapterForTime.getOutPut());
+        final Time time = new Time("12", "January", "2000", "23", "56", "45");
+        final String str =   gson.toJson(time);
+        ShadowLog.d("Gson", str);
+        final Time parseTime = gson.fromJson(str, Time.class);
+        ShadowLog.d("Time",parseTime.toString());
+
 
     }
 
