@@ -11,24 +11,21 @@ public class GsonListParser implements IListParser {
 
     private final InputStream mInputStream;
 
-
     public GsonListParser(final InputStream pInputStream) {
         mInputStream = pInputStream;
     }
 
     @Override
-    public IListItem parse() throws Exception {
+    public GsonListItem parse() throws Exception {
         final Reader reader = new InputStreamReader(mInputStream);
         final GsonItem[] result = new Gson().fromJson(reader, GsonItem[].class);
         return new GsonListItem(Arrays.asList(result));
     }
 
-    public IListItem parseWithRoot() throws Exception{
+    public GsonListItem parseWithRoot() throws Exception {
 
         final Reader reader = new InputStreamReader(mInputStream);
-
-        return new Gson().fromJson(reader,GsonListItem.class);
-
+        return new Gson().fromJson(reader, GsonListItem.class);
 
     }
 }

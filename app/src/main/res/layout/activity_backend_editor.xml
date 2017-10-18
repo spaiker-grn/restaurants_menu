@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="spaiker_grn.github.com.restaurants_menu.BackendEditor"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="16dp"/>
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="87dp"/>
+
+    <TextView
+        android:id="@+id/imageSourceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/image_source"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/getLastItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get_item_by_name"/>
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name"/>
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/description"/>
+
+    <EditText
+        android:id="@+id/imageSourceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/imagesource"/>
+
+    <Button
+        android:id="@+id/addNewItemButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_item"/>
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_by_name"/>
+</LinearLayout>

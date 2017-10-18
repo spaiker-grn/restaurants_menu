@@ -1,15 +1,17 @@
 package spaiker_grn.github.com.restaurants_menu;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+        import android.content.Intent;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.Button;
+        import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
+    Button button;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -17,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = (ListView) findViewById(R.id.main_list);
+        button = (Button) findViewById(R.id.backendButton);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                final Intent intent = new Intent(MainActivity.this, BackendEditor.class);
+                startActivity(intent);
+            }
+        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -38,5 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 }

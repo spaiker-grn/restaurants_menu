@@ -12,7 +12,7 @@ public class GsonParser implements IParser {
     private final InputStream mInputStream;
     private IItem mIItem = new GsonItem();
 
-    public GsonParser(InputStream pSource) { mInputStream = pSource;
+    public GsonParser(final InputStream pSource) { mInputStream = pSource;
     }
 
     @Override

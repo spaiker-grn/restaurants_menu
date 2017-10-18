@@ -1,6 +1,6 @@
 package spaiker_grn.github.com.restaurants_menu;
 
-public interface IDescriptionClass {
+interface IDescriptionClass {
 
     String getDescription(int item);
 

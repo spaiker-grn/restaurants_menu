@@ -11,7 +11,9 @@ import org.robolectric.shadows.ShadowLog;
 import java.io.InputStream;
 
 import spaiker_grn.github.com.MockStream.MockStream;
-import spaiker_grn.github.com.httpClient.IHttpClient;
+import spaiker_grn.github.com.restaurants_menu.httpClient.HttpClient;
+import spaiker_grn.github.com.restaurants_menu.httpClient.HttpClientTest;
+import spaiker_grn.github.com.restaurants_menu.httpClient.IHttpClient;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.AdapterForTime;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonListParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonParser;
@@ -21,6 +23,7 @@ import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.JsonListParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.jSonParser;
+import spaiker_grn.github.com.restaurants_menu.httpClient.IHttpClientTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -37,6 +40,8 @@ public class JsonTests {
     private static final String EXPECTED_NAME = "Coffee";
     private static final String EXPECTED_DESCRIPTION = "A couple of coffee prepared from roasted coffee beans";
     private static final String EXPECTED_IMAGE = "http://Example";
+    private IHttpClientTest mIHttpClient;
+
 
     @Test
     public void parse() throws Exception {
@@ -69,11 +74,11 @@ public class JsonTests {
 
     }
 
-    private IHttpClient mIHttpClient;
+
 
     @Before
     public void setUp() {
-        mIHttpClient = mock(IHttpClient.class);
+        mIHttpClient = mock(IHttpClientTest.class);
         ShadowLog.stream = System.out;
     }
 

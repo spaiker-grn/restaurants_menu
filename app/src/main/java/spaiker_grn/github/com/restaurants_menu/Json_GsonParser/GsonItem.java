@@ -10,7 +10,7 @@ public class GsonItem implements IItem {
 
     private String description;
 
-
+    @SerializedName("imageSource")
     private String image_source;
 
 

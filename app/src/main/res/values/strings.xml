@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">My Restaurants</string>
+    <string name="backend_editor">Backend editor</string>
+    <string name="add_new_item">Add New Item</string>
+    <string name="description">Description</string>
+    <string name="get_item_by_name">Get Item by name</string>
+    <string name="image_source">Image Source</string>
+    <string name="imagesource">ImageSource</string>
+    <string name="name">Name</string>
+    <string name="delete_by_name">Delete by name</string>
     <string-array name="main_menu">
         <item>Drink</item>
         <item>Food</item>

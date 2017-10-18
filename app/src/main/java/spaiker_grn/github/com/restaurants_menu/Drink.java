@@ -43,17 +43,17 @@ class Drink implements IDescriptionClass {
     }
 
     @Override
-    public String getDescription(int item) {
+    public String getDescription(final int item) {
         return drinks[item].getDescription();
     }
 
     @Override
-    public String getName(int item) {
+    public String getName(final int item) {
         return drinks[item].getName();
     }
 
     @Override
-    public int getImageResourceId(int item) {
+    public int getImageResourceId(final int item) {
         return drinks[item].getImageResourceId();
     }
 

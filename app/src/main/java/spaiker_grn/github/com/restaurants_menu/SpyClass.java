@@ -1,14 +1,14 @@
 package spaiker_grn.github.com.restaurants_menu;
 
-public class SpyClass {
+class SpyClass {
 
-    int id;
+    private int id;
 
     SpyClass() {
 
     }
 
-    public boolean setId(int pId) {
+    boolean setId(final int pId) {
         id = pId;
         return true;
     }

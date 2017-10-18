@@ -3,12 +3,21 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context="spaiker_grn.github.com.restaurants_menu.MainActivity">
+              tools:context="spaiker_grn.github.com.restaurants_menu.MainActivity"
+              android:orientation="vertical"
+              android:weightSum="1">
 
     <ListView
         android:id="@+id/main_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:entries="@array/main_menu"/>
+        android:layout_height="0dp"
+        android:entries="@array/main_menu"
+        android:layout_weight="0.46"/>
+
+    <Button
+        android:id="@+id/backendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/backend_editor"/>
 
 </LinearLayout>
