@@ -7,6 +7,8 @@ import com.google.gson.GsonBuilder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Matchers;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
@@ -23,12 +25,14 @@ import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.JsonListParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.jSonParser;
+import spaiker_grn.github.com.restaurants_menu.httpClient.IHttpClient;
 import spaiker_grn.github.com.restaurants_menu.httpClient.IHttpClientTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class)
@@ -43,6 +47,7 @@ public class JsonTests {
     private IHttpClientTest mIHttpClient;
 
 
+
     @Test
     public void parse() throws Exception {
 
@@ -51,6 +56,11 @@ public class JsonTests {
         when(mIHttpClient.request(Matchers.anyString())).thenReturn(inputstream);
         final InputStream response = mIHttpClient.request("http://Url");
         assertNotNull("Response null", response);
+
+
+        ArgumentCaptor<String> mStringArgumentCaptor = ArgumentCaptor.forClass(String.class); //ArgumentCaptor example
+        verify(mIHttpClient).request(mStringArgumentCaptor.capture());
+        assertEquals("http://Url",mStringArgumentCaptor.getValue());
 
         final IParser iParser = new GsonParser(response);
         final IItem iItem = iParser.parse();
@@ -82,11 +92,15 @@ public class JsonTests {
         ShadowLog.stream = System.out;
     }
 
+
+
     @Test
     public void parseListGson() throws Exception {
 
         final InputStream inputstream = MockStream.sStream("jsonListItem.json");
         assertNotNull("inputstream null", inputstream);
+
+
         when(mIHttpClient.request(Matchers.anyString())).thenReturn(inputstream);
         final InputStream response = mIHttpClient.request("http://Url");
         assertNotNull("Response null", response);
@@ -125,6 +139,7 @@ public class JsonTests {
         assertNotNull("inputstream null", inputstream);
         when(mIHttpClient.request(Matchers.anyString())).thenReturn(inputstream);
         final InputStream response = mIHttpClient.request("http://Url");
+
         assertNotNull("Response null", response);
 
         final IListParser jsonListParser = new JsonListParser(response);

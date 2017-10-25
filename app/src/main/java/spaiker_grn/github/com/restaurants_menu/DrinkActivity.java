@@ -1,6 +1,7 @@
 package spaiker_grn.github.com.restaurants_menu;
 
 import android.content.Intent;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -23,7 +24,16 @@ public class DrinkActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         final int itemNumber = intent.getIntExtra(EXTRA_DRINK_NO, -1);
 
-        mIDescriptionClass = Drink.drinks[itemNumber];
+
+        Bundle bundle = new Bundle();
+
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.add(R.id.container, new DrinkDescriptionFragment());
+        transaction.commit();
+
+
+
+/*        mIDescriptionClass = Drink.drinks[itemNumber];
 
         mImageView = (ImageView) findViewById(R.id.photo_image_view);
         mName = (TextView) findViewById(R.id.name_text_view);
@@ -36,5 +46,6 @@ public class DrinkActivity extends AppCompatActivity {
 
         mDescription.setText(mIDescriptionClass.getDescription(itemNumber));
 
+    */
     }
 }

@@ -82,7 +82,7 @@ public class RestaurantsUnitTest {
         final RuntimeException runtimeException = new RuntimeException("Out of bounds");
         mDrink = mock(Drink.class);
 
-        doReturn("Coffee").when(mDrink).getName(0);
+        doReturn("Coffee").when(mDrink).getName(0);    //doReturn example
         doReturn(R.drawable.coffee).when(mDrink).getImageResourceId(0);
 
         doThrow(runtimeException).when(mDrink).getImageResourceId(4);
