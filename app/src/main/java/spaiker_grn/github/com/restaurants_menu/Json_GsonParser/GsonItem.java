@@ -10,8 +10,8 @@ public class GsonItem implements IItem {
 
     private String description;
 
-    @SerializedName("imageSource")
-    private String image_source;
+
+    private String imageSource;
 
 
     @Override
@@ -26,6 +26,6 @@ public class GsonItem implements IItem {
 
     @Override
     public String getImage() {
-        return image_source;
+        return imageSource;
     }
 }

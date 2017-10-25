@@ -1,5 +1,5 @@
 {
   "name" : "Coffee",
   "description" : "A couple of coffee prepared from roasted coffee beans",
-  "image_source" : "http://Example"
+  "imageSource" : "http://Example"
 }

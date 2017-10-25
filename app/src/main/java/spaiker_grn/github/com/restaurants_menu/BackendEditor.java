@@ -7,14 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.InputStream;
-
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IItem;
@@ -23,7 +19,7 @@ import spaiker_grn.github.com.restaurants_menu.httpClient.HttpClient;
 
 public class BackendEditor extends AppCompatActivity {
 
-    private static final String URL_POST = "https://restaurants-menu-183209.appspot.com/_ah/api/myBeanApi/v1/myBean?fields=description%2CimageSource%2Cname";
+    private static final String URL_POST = BuildConfig.BACKEND_URL + "/_ah/api/myBeanApi/v1/myBean?fields=description%2CimageSource%2Cname";
 
     TextView nameTextView;
     TextView descriptionTextView;
@@ -41,6 +37,8 @@ public class BackendEditor extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backend_editor);
+
+
 
         getButton = (Button) findViewById(R.id.getLastItemButton);
         setButton = (Button) findViewById(R.id.addNewItemButton);
@@ -162,6 +160,10 @@ public class BackendEditor extends AppCompatActivity {
 
         }
     }
+
+
+
+
 
 }
 

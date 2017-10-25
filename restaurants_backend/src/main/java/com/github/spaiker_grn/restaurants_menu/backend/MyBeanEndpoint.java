@@ -84,7 +84,6 @@ public class MyBeanEndpoint {
     }
 
 
-
     /**
      * Inserts a new {@code MyBean}.
      */

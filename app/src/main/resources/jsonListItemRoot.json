@@ -3,17 +3,17 @@
     {
       "name": "Coffee",
       "description": "A couple of coffee prepared from roasted coffee beans",
-      "image_source": "http://Example"
+      "imageSource": "http://Example"
     },
     {
       "name": "Black tea",
       "description": "Generally stronger in flavor than the less oxidized teas",
-      "image_source": "http://Example"
+      "imageSource": "http://Example"
     },
     {
       "name": "Green tea",
       "description": "Made from Camellia sinensis leaves that have not undergone",
-      "image_source": "http://Example"
+      "imageSource": "http://Example"
     }
   ]
 }

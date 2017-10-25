@@ -7,14 +7,20 @@ package spaiker_grn.github.com.restaurants_menu;
         import android.widget.AdapterView;
         import android.widget.Button;
         import android.widget.ListView;
+        import android.widget.Toast;
+
+        import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     Button button;
+    String appVersion;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -50,6 +56,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        try {
+            appVersion = new CheckVersionAsyncTask().execute().get();
+        } catch (InterruptedException pE) {
+            pE.printStackTrace();
+        } catch (ExecutionException pE) {
+            pE.printStackTrace();
+        }
+            if (Integer.parseInt(appVersion)!=BuildConfig.VERSION_CODE){
+                startActivity(new Intent(this,UpdateActivity.class));
+            }
 
+    }
 }

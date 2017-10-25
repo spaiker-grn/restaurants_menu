@@ -16,6 +16,7 @@ public class MyBean {
     private String name;
     private String description;
     private String imageSource;
+    private String appVersion = "1";
 
     public MyBean(final String pName, final String pDescription, final String pImageSource) {
         name = pName;
@@ -25,6 +26,11 @@ public class MyBean {
     public MyBean(){
 
     }
+
+    public String getAppVersion() {
+        return appVersion;
+    }
+
 
     public String getName() {
         return name;

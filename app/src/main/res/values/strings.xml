@@ -8,6 +8,8 @@
     <string name="imagesource">ImageSource</string>
     <string name="name">Name</string>
     <string name="delete_by_name">Delete by name</string>
+    <string name="update">Update</string>
+    <string name="you_should_update_your_app">You should update your App</string>
     <string-array name="main_menu">
         <item>Drink</item>
         <item>Food</item>

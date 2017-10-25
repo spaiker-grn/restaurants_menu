@@ -18,6 +18,7 @@ import org.robolectric.shadows.ShadowLog;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
@@ -80,8 +81,9 @@ public class RestaurantsUnitTest {
     public void mockTest() {
         final RuntimeException runtimeException = new RuntimeException("Out of bounds");
         mDrink = mock(Drink.class);
-        when(mDrink.getName(0)).thenReturn("Coffee");
-        when(mDrink.getImageResourceId(0)).thenReturn(R.drawable.coffee);
+
+        doReturn("Coffee").when(mDrink).getName(0);
+        doReturn(R.drawable.coffee).when(mDrink).getImageResourceId(0);
 
         doThrow(runtimeException).when(mDrink).getImageResourceId(4);
         //when(mDrink.getImageResourceId(4)).thenReturn(R.drawable.coffee);

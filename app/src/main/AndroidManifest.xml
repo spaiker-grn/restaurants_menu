@@ -22,6 +22,8 @@
         <activity android:name=".DrinkActivity"/>
         <activity android:name=".BackendEditor">
         </activity>
+        <activity android:name=".UpdateActivity">
+        </activity>
     </application>
 
 </manifest>

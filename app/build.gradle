@@ -12,11 +12,33 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+
+            buildConfigField "String", "BACKEND_URL", "\"https://restaurants-menu-183209.appspot.com\""
+        }
         release {
+
+            buildConfigField "String", "BACKEND_URL", "\"https://backend-183211.appspot.com\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "store"
+
+    productFlavors {
+        GooglePlay {
+            flavorDimension "store"
+            buildConfigField "String", "SHARE_URL", "\"http://appforgooglestore.com\""
+        }
+
+        Amazon {
+            flavorDimension "store"
+            buildConfigField "String", "SHARE_URL", "\"http://appforamazon.com\""
+        }
+
+    }
+
 }
 
 dependencies {

@@ -6,7 +6,7 @@ public class JsonItem implements IItem {
 
     public static final String NAME = "name";
     public static final String DESCRIPTION = "description";
-    public static final String IMAGE_RESOURCE = "image_source";
+    public static final String IMAGE_RESOURCE = "imageSource";
 
     JSONObject mJSONObject;
 
