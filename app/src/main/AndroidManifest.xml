@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".DrinkCategoryActivity"/>
         <activity android:name=".DrinkActivity"/>
-        <activity android:name=".BackendEditor">
+        <activity android:name=".Backend.BackendEditor">
         </activity>
         <activity android:name=".UpdateActivity">
         </activity>

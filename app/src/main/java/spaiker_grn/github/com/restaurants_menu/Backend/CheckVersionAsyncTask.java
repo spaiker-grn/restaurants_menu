@@ -1,8 +1,8 @@
-package spaiker_grn.github.com.restaurants_menu;
+package spaiker_grn.github.com.restaurants_menu.Backend;
 
 import android.os.AsyncTask;
 
-class CheckVersionAsyncTask extends AsyncTask<String, String, String> {
+public class CheckVersionAsyncTask extends AsyncTask<String, String, String> {
 
 
     @Override

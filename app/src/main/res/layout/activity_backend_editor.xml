@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spaiker_grn.github.com.restaurants_menu.BackendEditor"
+    tools:context="spaiker_grn.github.com.restaurants_menu.Backend.BackendEditor"
     android:orientation="vertical">
 
     <TextView

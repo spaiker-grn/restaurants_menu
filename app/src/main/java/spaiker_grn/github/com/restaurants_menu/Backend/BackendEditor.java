@@ -1,4 +1,4 @@
-package spaiker_grn.github.com.restaurants_menu;
+package spaiker_grn.github.com.restaurants_menu.Backend;
 
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -11,10 +11,13 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.InputStream;
+
+import spaiker_grn.github.com.restaurants_menu.BuildConfig;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.GsonParser;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IItem;
 import spaiker_grn.github.com.restaurants_menu.Json_GsonParser.IParser;
+import spaiker_grn.github.com.restaurants_menu.R;
 import spaiker_grn.github.com.restaurants_menu.httpClient.HttpClient;
 
 public class BackendEditor extends AppCompatActivity {

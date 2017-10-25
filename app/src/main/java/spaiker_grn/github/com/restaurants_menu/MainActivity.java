@@ -1,15 +1,17 @@
 package spaiker_grn.github.com.restaurants_menu;
 
-        import android.content.Intent;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.Button;
-        import android.widget.ListView;
-        import android.widget.Toast;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
 
-        import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutionException;
+
+import spaiker_grn.github.com.restaurants_menu.Backend.BackendEditor;
+import spaiker_grn.github.com.restaurants_menu.Backend.CheckVersionAsyncTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -67,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (ExecutionException pE) {
             pE.printStackTrace();
         }
-            if (Integer.parseInt(appVersion)!=BuildConfig.VERSION_CODE){
-                startActivity(new Intent(this,UpdateActivity.class));
-            }
+        if (Integer.parseInt(appVersion) != BuildConfig.VERSION_CODE) {
+            startActivity(new Intent(this, UpdateActivity.class));
+        }
 
     }
 }

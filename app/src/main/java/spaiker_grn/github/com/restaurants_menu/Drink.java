@@ -1,9 +1,5 @@
 package spaiker_grn.github.com.restaurants_menu;
 
-
-
-
-
 class Drink implements IDescriptionClass {
 
     private final String mName;
