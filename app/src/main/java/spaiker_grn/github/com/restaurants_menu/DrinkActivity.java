@@ -1,5 +1,6 @@
 package spaiker_grn.github.com.restaurants_menu;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +25,13 @@ public class DrinkActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         final int itemNumber = intent.getIntExtra(EXTRA_DRINK_NO, -1);
 
+        final Bundle bundle = new Bundle();
+        bundle.putInt(EXTRA_DRINK_NO, itemNumber);
+        final DrinkDescriptionFragment fragment = new DrinkDescriptionFragment();
+        fragment.setArguments(bundle);
 
-        Bundle bundle = new Bundle();
-
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.add(R.id.container, new DrinkDescriptionFragment());
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.add(R.id.container, fragment);
         transaction.commit();
 
 

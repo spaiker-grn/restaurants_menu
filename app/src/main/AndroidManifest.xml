@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,10 +21,15 @@
         </activity>
         <activity android:name=".DrinkCategoryActivity"/>
         <activity android:name=".DrinkActivity"/>
-        <activity android:name=".Backend.BackendEditor">
-        </activity>
-        <activity android:name=".UpdateActivity">
-        </activity>
+        <activity android:name=".Backend.BackendEditor"/>
+        <activity android:name=".UpdateActivity"/>
+        <service android:name=".UpdateService"/>
+        <receiver android:name=".UpdateBroadcastReceiver">
+            <intent-filter>
+            <action android:name="spaiker_grn.github.com.restaurants_menu"/>
+            </intent-filter>
+        </receiver>
+        
     </application>
 
 </manifest>

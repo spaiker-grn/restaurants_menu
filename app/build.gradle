@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "spaiker_grn.github.com.restaurants_menu"
         minSdkVersion 14
@@ -24,16 +24,16 @@ android {
         }
     }
 
-    flavorDimensions "store"
+    flavorDimensions("store")
 
     productFlavors {
         GooglePlay {
-            flavorDimension "store"
+            dimension "store"
             buildConfigField "String", "SHARE_URL", "\"http://appforgooglestore.com\""
         }
 
         Amazon {
-            flavorDimension "store"
+            dimension "store"
             buildConfigField "String", "SHARE_URL", "\"http://appforamazon.com\""
         }
 
@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support:design:25.4.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -53,12 +54,22 @@ dependencies {
         exclude module: 'httpclient'
     }
     compile project(path: ':restaurants_backend', configuration: 'android-endpoints')
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.android.support:support-v4:25.4.0'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     testCompile 'org.robolectric:robolectric:3.4.2'
     testCompile 'org.mockito:mockito-core:1.10.19'
+
+    testImplementation "org.robolectric:robolectric:3.4.2"
+
+    android {
+        testOptions {
+            unitTests {
+                includeAndroidResources = true
+            }
+        }
+    }
     testCompile 'junit:junit:4.12'
 }

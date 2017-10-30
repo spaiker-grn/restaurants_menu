@@ -1,5 +1,7 @@
 package spaiker_grn.github.com.restaurants_menu;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,13 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     Button button;
-    String appVersion;
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         listView = (ListView) findViewById(R.id.main_list);
         button = (Button) findViewById(R.id.backendButton);
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -59,18 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+
+        startService(new Intent(this, UpdateService.class));
+
         super.onResume();
 
-        try {
-            appVersion = new CheckVersionAsyncTask().execute().get();
-        } catch (InterruptedException pE) {
-            pE.printStackTrace();
-        } catch (ExecutionException pE) {
-            pE.printStackTrace();
-        }
-        if (Integer.parseInt(appVersion) != BuildConfig.VERSION_CODE) {
-            startActivity(new Intent(this, UpdateActivity.class));
-        }
+
 
     }
 }

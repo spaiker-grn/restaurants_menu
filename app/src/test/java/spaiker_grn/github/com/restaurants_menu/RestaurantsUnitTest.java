@@ -15,6 +15,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowLog;
 
+import static junit.framework.Assert.assertNotNull;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
